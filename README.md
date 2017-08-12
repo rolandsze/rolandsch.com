@@ -1,0 +1,1 @@
+This is my personal website project. I develop it when i have free time to do. For this project, i use Foundation as framework and Gulp task runner to compile my SASS files, transform my ES6 code with Babel and bundle it with Browserify.

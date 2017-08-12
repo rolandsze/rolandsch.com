@@ -1,0 +1,13 @@
+html,
+body
+{
+    height: 100%;
+}
+
+body
+{
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
+    -webkit-animation-name: fade-in;
+    animation-name: fade-in;
+}
