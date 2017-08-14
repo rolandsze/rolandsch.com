@@ -4,6 +4,7 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var browserify = require('browserify');
 var babel = require('babelify');
+var uglify = require('gulp-uglify');
 var $ = require('gulp-load-plugins')();
 
 // Resources
@@ -31,7 +32,7 @@ var destinations = {
         folder: 'public/css'
     },
     js: {
-        file: 'main.js',
+        file: 'main.min.js',
         folder: 'public/js'
     },
     bower: 'public/js/foundation'
@@ -72,6 +73,7 @@ gulp.task('js', function() {
         .pipe(source(destinations.js.file))
         .pipe(buffer())
         .pipe(sourcemaps.init({loadMaps: true}))
+        .pipe(uglify())
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(destinations.js.folder));
 });
