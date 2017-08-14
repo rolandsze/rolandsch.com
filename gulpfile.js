@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var connect = require('gulp-connect');
 var sourcemaps = require('gulp-sourcemaps');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
@@ -28,6 +29,7 @@ var resources = {
 
 // Destinations
 var destinations = {
+    public: 'public',
     scss: {
         folder: 'public/css'
     },
@@ -37,6 +39,14 @@ var destinations = {
     },
     bower: 'public/js/foundation'
 };
+
+// Task: server
+gulp.task('connect', function() {
+    return connect.server({
+        root: destinations.public,
+        livereload: true
+    });
+});
 
 // Task: bower:move
 gulp.task('bower:move', function() {
@@ -55,7 +65,8 @@ gulp.task('scss', function() {
         .pipe($.autoprefixer({
             browsers: ['last 2 versions', 'ie >= 9']
         }))
-        .pipe(gulp.dest(destinations.scss.folder));
+        .pipe(gulp.dest(destinations.scss.folder))
+        .pipe(connect.reload());
 });
 
 // Task: js
@@ -75,14 +86,21 @@ gulp.task('js', function() {
         .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(uglify())
         .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest(destinations.js.folder));
+        .pipe(gulp.dest(destinations.js.folder))
+        .pipe(connect.reload());
+});
+
+gulp.task('html', function() {
+    gulp.src(destinations.public + '/*.html')
+        .pipe(connect.reload());
 });
 
 // Task: watch
 gulp.task('watch', function() {
+    gulp.watch(destinations.public + '/*.html', ['html']);
     gulp.watch('resources/scss/**/*.scss', ['scss']);
     gulp.watch('resources/js/**/*.js', ['js']);
 });
 
 // Default
-gulp.task('default', ['watch']);
+gulp.task('default', ['connect', 'watch']);
