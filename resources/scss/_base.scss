@@ -6,8 +6,11 @@ body
 
 body
 {
-    -webkit-animation-duration: .5s;
-    animation-duration: .5s;
-    -webkit-animation-name: fade-in;
     animation-name: fade-in;
+    animation-duration: .5s;
+}
+
+a
+{
+    transition: ease-in-out color .3s;
 }
