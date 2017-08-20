@@ -3,42 +3,39 @@
     width: 100%;
     height: 100%;
     position: relative;
+    background: fixed;
     background-size: cover;
+    background-position: center center;
 
-    &__particles,
+    &__caption,
+    &__down-arrow,
     &__mask
     {
         position: absolute;
-        top: 0;
-        left: 0;
         width: 100%;
-        height: 100%;
     }
 
     &__caption
     {
-        position: absolute;
-        width: 100%;
         top: 50%;
         left: 0;
         transform: translateY(-50%);
-        z-index: 3;
+        z-index: 2;
         color: $white;
-
-        h1
-        {
-            text-align: center;
-        }
     }
 
-    &__particles
+    &__down-arrow
     {
+        left: 0;
+        bottom: 1rem;
         z-index: 2;
-        overflow: hidden;
     }
 
     &__mask
     {
+        top: 0;
+        left: 0;
+        height: 100%;
         z-index: 1;
         background-color: $hello-mask-background;
     }

@@ -4,13 +4,13 @@ body
     height: 100%;
 }
 
-body
-{
-    animation-name: fade-in;
-    animation-duration: .5s;
-}
-
 a
 {
-    transition: ease-in-out color .3s;
+    transition: ease-in-out color .2s;
+}
+
+.svg-sprite-container
+{
+    display: none;
+    visibility: hidden;
 }

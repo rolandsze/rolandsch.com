@@ -1,34 +1,33 @@
-var gulp = require('gulp');
-var connect = require('gulp-connect');
-var sourcemaps = require('gulp-sourcemaps');
-var source = require('vinyl-source-stream');
-var buffer = require('vinyl-buffer');
-var browserify = require('browserify');
-var babel = require('babelify');
-var uglify = require('gulp-uglify');
-var $ = require('gulp-load-plugins')();
+let gulp = require('gulp');
+let connect = require('gulp-connect');
+let sourcemaps = require('gulp-sourcemaps');
+let source = require('vinyl-source-stream');
+let buffer = require('vinyl-buffer');
+let browserify = require('browserify');
+let babel = require('babelify');
+let uglify = require('gulp-uglify');
+let svgstore = require('gulp-svgstore');
+let svgmin = require('gulp-svgmin');
+let path = require('path');
+let $ = require('gulp-load-plugins')();
 
 // Resources
-var resources = {
+let resources = {
     scss: {
-        foundation: [
-            'bower_components/normalize.scss/sass',
-            'bower_components/foundation-sites/scss',
-            'bower_components/motion-ui/src'
+        extra: [
+            'node_modules/foundation-sites/scss',
+            'node_modules/wowjs/css/libs'
         ],
         main: 'resources/scss/main.scss'
     },
     js: {
         main: 'resources/js/main.js'
     },
-    bower: [
-        'bower_components/what-input/dist/what-input.js',
-        'bower_components/foundation-sites/dist/js/foundation.js'
-    ]
+    svg: 'resources/svg'
 };
 
 // Destinations
-var destinations = {
+let destinations = {
     public: 'public',
     scss: {
         folder: 'public/css'
@@ -37,7 +36,9 @@ var destinations = {
         file: 'main.min.js',
         folder: 'public/js'
     },
-    bower: 'public/js/foundation'
+    svg: {
+        folder: 'public/svg'
+    }
 };
 
 // Task: server
@@ -48,17 +49,11 @@ gulp.task('connect', function() {
     });
 });
 
-// Task: bower:move
-gulp.task('bower:move', function() {
-    return gulp.src(resources.bower)
-        .pipe(gulp.dest(destinations.bower));
-});
-
 // Task: scss
 gulp.task('scss', function() {
     return gulp.src(resources.scss.main)
         .pipe($.sass({
-            includePaths: resources.scss.foundation,
+            includePaths: resources.scss.extra,
             outputStyle: 'compressed'
         })
             .on('error', $.sass.logError))
@@ -71,7 +66,7 @@ gulp.task('scss', function() {
 
 // Task: js
 gulp.task('js', function() {
-    var bundler = browserify(resources.js.main, {debug: true})
+    let bundler = browserify(resources.js.main, {debug: true})
         .transform(babel.configure({
             presets: ['es2015']
         }));
@@ -90,9 +85,29 @@ gulp.task('js', function() {
         .pipe(connect.reload());
 });
 
+// Task: html
 gulp.task('html', function() {
     gulp.src(destinations.public + '/*.html')
         .pipe(connect.reload());
+});
+
+// Task: svgstore
+gulp.task('svgstore', function() {
+    return gulp
+        .src(resources.svg + '/*.svg')
+        .pipe(svgmin(function(file) {
+            let prefix = path.basename(file.relative, path.extname(file.relative));
+            return {
+                plugins: [{
+                    cleanupIDs: {
+                        prefix: prefix + '-',
+                        minify: true
+                    }
+                }]
+            };
+        }))
+        .pipe(svgstore())
+        .pipe(gulp.dest(destinations.svg.folder));
 });
 
 // Task: watch

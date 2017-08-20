@@ -1,0 +1,28 @@
+.icon
+{
+    display: inline-block;
+    fill: currentColor;
+    height: 32px;
+    width: 32px;
+    stroke: currentColor;
+    stroke-width: .1em;
+    vertical-align: middle;
+
+    &--small
+    {
+        height: 24px;
+        width: 24px;
+    }
+
+    &--medium
+    {
+        height: 48px;
+        width: 48px;
+    }
+
+    &--large
+    {
+        height: 64px;
+        width: 64px;
+    }
+}
