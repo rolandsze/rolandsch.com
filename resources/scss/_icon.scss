@@ -8,6 +8,12 @@
     stroke-width: .1em;
     vertical-align: middle;
 
+    &--extra-small
+    {
+        height: 20px;
+        width: 20px;
+    }
+
     &--small
     {
         height: 24px;
