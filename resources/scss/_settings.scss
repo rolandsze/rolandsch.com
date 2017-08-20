@@ -457,7 +457,8 @@ $label-background: $primary-color;
 $label-color: $white;
 $label-color-alt: $black;
 $label-palette: map-merge($foundation-palette, (
-    clouds: #ECF0F1
+    clouds: #ECF0F1,
+    yellow: $es6yellow
 )) !default;
 $label-font-size: .9rem;
 $label-padding: 0.33333rem 0.5rem;

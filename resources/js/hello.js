@@ -16,7 +16,7 @@ const defaults = {
     },
     visibilityClass: 'hide',
     downArrowAnimationClass: 'animated bounce',
-    greeting: 'Hi, good %s!^1000 I\'m Roland, a passionate web developer.^550 I build cool stuffs.^550 <br><a href="%s" class="link--solid">Scroll down</a> to know more!',
+    greeting: 'Hello!^500 I\'m Roland, a passionate web developer.^500 I build web sites and applications.<br>^500 <a href="%s" class="link--solid">Scroll down</a> to know more!',
     scrollToSection: '#about-me',
 };
 
@@ -27,7 +27,7 @@ export default class Hello {
     initialize() {
         new Typed(defaults.selectors.caption, {
             strings: [this.getGreetingString()],
-            typeSpeed: 27,
+            typeSpeed: 30,
             showCursor: true,
             startDelay: 750,
             onComplete: (self) => {
@@ -47,11 +47,11 @@ export default class Hello {
      * @returns string
      */
     getGreetingString() {
-        return vsprintf(defaults.greeting, [this.getPartOfTheDay(), defaults.scrollToSection]);
+        return vsprintf(defaults.greeting, [defaults.scrollToSection]);
     }
 
     /**
-     * Get part of the day
+     * Get part of the day - not using for now
      *
      * @returns string
      */
