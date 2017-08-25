@@ -1,6 +1,6 @@
 @charset 'utf-8';
 
-// Some stuffs are disabled because they are not needed for now
+// Some components are disabled because they are not needed for now
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,700');
 @import 'settings';
 @import 'foundation';
@@ -15,7 +15,8 @@
 @import 'background';
 @import 'icon';
 @import 'animation';
-@import 'header';
+@import 'off-canvas';
+@import 'fixed-header';
 @import 'typed';
 @import 'hello';
 @import 'i-worked-with';
@@ -26,7 +27,7 @@
 // @include foundation-flex-grid;
 @include foundation-xy-grid-classes;
 @include foundation-typography;
-// @include foundation-button;
+@include foundation-button;
 // @include foundation-forms;
 // @include foundation-range-input;
 // @include foundation-accordion;
@@ -37,7 +38,7 @@
 // @include foundation-callout;
 // @include foundation-card;
 // @include foundation-close-button;
-// @include foundation-menu;
+@include foundation-menu;
 // @include foundation-menu-icon;
 // @include foundation-drilldown-menu;
 // @include foundation-dropdown;
@@ -45,7 +46,7 @@
 // @include foundation-responsive-embed;
 @include foundation-label;
 // @include foundation-media-object;
-// @include foundation-off-canvas;
+@include foundation-off-canvas;
 // @include foundation-orbit;
 // @include foundation-pagination;
 // @include foundation-progress-bar;

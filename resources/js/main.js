@@ -6,7 +6,7 @@ require('lazysizes/plugins/bgset/ls.bgset');
 require('./foundation');
 const wowjs = require('wowjs');
 
-new Hello().initialize();
+new Hello();
 
 $(document).foundation();
 new wowjs.WOW().init();

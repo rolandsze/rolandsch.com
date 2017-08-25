@@ -8,6 +8,11 @@
     stroke-width: .1em;
     vertical-align: middle;
 
+    &--align-sub
+    {
+        vertical-align: sub;
+    }
+
     &--extra-small
     {
         height: 20px;
@@ -20,10 +25,22 @@
         width: 24px;
     }
 
+    &--semi-medium
+    {
+        height: 36px;
+        width: 36px;
+    }
+
     &--medium
     {
         height: 48px;
         width: 48px;
+    }
+
+    &--semi-large
+    {
+        height: 54px;
+        width: 54px;
     }
 
     &--large

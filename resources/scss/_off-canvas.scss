@@ -1,0 +1,21 @@
+.off-canvas
+{
+    &__menu-close-button
+    {
+        display: inline-block;
+        margin-top: 1rem;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    &-content
+    {
+        &.is-open-right
+        {
+            .fixed-header
+            {
+                display: none;
+            }
+        }
+    }
+}

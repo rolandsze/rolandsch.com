@@ -18,6 +18,21 @@
     color: $green-sea;
 }
 
+.text-asbestos
+{
+    color: $asbestos;
+}
+
+.text-silver
+{
+    color: $silver;
+}
+
+.text-white
+{
+    color: $white;
+}
+
 .small-text-center
 {
     @include breakpoint(small only)

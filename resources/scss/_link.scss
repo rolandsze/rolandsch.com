@@ -1,11 +1,29 @@
 .link
 {
-    &--solid
+    &--with-svg
+    {
+        svg
+        {
+            margin-right: .25rem;
+        }
+    }
+
+    &--no-decoration
+    {
+        text-decoration: none;
+    }
+
+    &--white
     {
         color: $white;
     }
 
-    &--on-light
+    &--asbestos
+    {
+        color: $asbestos;
+    }
+
+    &--black
     {
         color: $black;
     }
