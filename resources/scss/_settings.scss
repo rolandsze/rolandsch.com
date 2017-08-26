@@ -82,11 +82,11 @@ $white: #FEFEFE;
 $es6yellow: #FFC600;
 $midnight-blue: #2C3E50;
 $asbestos: #7F8C8D;
-$silver: #bdc3c7;
+$silver: #BDC3C7;
 $clouds: #ECF0F1;
 $emerald: #2ECC71;
 $green-sea: #16A085;
-$hello-mask-background: rgba(0, 0, 0, .27);
+$hello-mask-background: rgba(0, 0, 0, .5);
 $body-background: $white;
 $body-font-color: $black;
 $body-font-family: 'Roboto Condensed', sans-serif;
@@ -146,10 +146,10 @@ $header-margin-bottom: 0.5rem;
 $header-styles: (
     small: (
         'h1': ('font-size': 24),
-        'h2': ('font-size': 22),
-        'h3': ('font-size': 21),
-        'h4': ('font-size': 20),
-        'h5': ('font-size': 19),
+        'h2': ('font-size': 23),
+        'h3': ('font-size': 20),
+        'h4': ('font-size': 18),
+        'h5': ('font-size': 18),
         'h6': ('font-size': 18),
     ),
     medium: (
@@ -159,6 +159,14 @@ $header-styles: (
         'h4': ('font-size': 25),
         'h5': ('font-size': 20),
         'h6': ('font-size': 16),
+    ),
+    large: (
+        'h1': ('font-size': 56),
+        'h2': ('font-size': 44),
+        'h3': ('font-size': 34),
+        'h4': ('font-size': 28),
+        'h5': ('font-size': 22),
+        'h6': ('font-size': 18),
     ),
 );
 $header-text-rendering: optimizeLegibility;
@@ -307,7 +315,7 @@ $button-palette: map-merge($foundation-palette, (
 $button-opacity-disabled: 0.25;
 $button-background-hover-lightness: -20%;
 $button-hollow-hover-lightness: -50%;
-$button-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+$button-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
 
 // 12. Button Group
 // ----------------

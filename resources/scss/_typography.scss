@@ -33,9 +33,14 @@
     color: $white;
 }
 
-.small-text-center
+@include breakpoint(small only)
 {
-    @include breakpoint(small only)
+    .small-text-paragraph
+    {
+        font-size: .8rem;
+    }
+
+    .small-text-center
     {
         text-align: center;
     }
