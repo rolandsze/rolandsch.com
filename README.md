@@ -1,16 +1,19 @@
+About
+-
+Home repository of my personal website project.
 [http://rolandsch.com](http://rolandsch.com)
+Self hosted on Ubuntu Linux at DigitalOcean
 
-My personal website project. I develop it when i have free time to do.
-
-
-Tools i use
--------------
+Built with
+-
 * Foundation
 * SASS
 * JavaScript (ES6)
-* Gulp
-* Browserify
-* NPM
-* particles.js
 * typed.js
 * lazysizes
+* Babel
+* Browserify
+* Gulp
+* NPM
+* iTerm
+* PhpStorm 2017
